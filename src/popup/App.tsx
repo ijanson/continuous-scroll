@@ -12,21 +12,21 @@ export default function App() {
 
   React.useEffect(() => {
     (async function () {
-        const values = await browser.storage.local.get().then((val) => {return val});
-        "enabled" in values ? setEnabled(values.enabled) : browser.storage.local.set({"enabled":enabled});
-        "speed" in values ? setSpeed(values.speed) : browser.storage.local.set({"speed":speed});
-        // console.log(values);
+      const values = await browser.storage.local.get().then((val) => { return val });
+      "enabled" in values ? setEnabled(values.enabled) : browser.storage.local.set({ "enabled": enabled });
+      "speed" in values ? setSpeed(values.speed) : browser.storage.local.set({ "speed": speed });
+      // console.log(values);
     }())
   }, []);
 
-const handleClick = () => {
+  const handleClick = () => {
     setEnabled(!enabled);
-    browser.storage.local.set({"enabled":!enabled});
+    browser.storage.local.set({ "enabled": !enabled });
   };
 
   const handleChange = (_event: Event, value: number | number[]) => {
     setSpeed(value as number);
-    browser.storage.local.set({"speed":value});
+    browser.storage.local.set({ "speed": value });
   }
 
   return (

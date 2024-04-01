@@ -3,7 +3,7 @@ if (document.scrollingElement !== null) {
   var speed: number = 50;
   var enabled: boolean = false;
 
-  browser.storage.local.get().then((val) => { 
+  browser.storage.local.get().then((val) => {
     "enabled" in val && (enabled = val.enabled);
     "speed" in val && (speed = val.speed);
   });
@@ -12,13 +12,13 @@ if (document.scrollingElement !== null) {
     if (enabled) {
       switch (k.key) {
         case "ArrowDown":
-          interval = !interval? window.setInterval((function () {
+          interval = !interval ? window.setInterval((function () {
             document.scrollingElement!.scrollBy(0, speed);
           }), 1) : interval;
           k.preventDefault();
           break;
         case "ArrowUp":
-          interval = !interval? window.setInterval((function () {
+          interval = !interval ? window.setInterval((function () {
             document.scrollingElement!.scrollBy(0, -speed);
           }), 1) : interval;
           k.preventDefault();
